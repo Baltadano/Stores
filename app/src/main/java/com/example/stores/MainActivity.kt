@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity(), OnClickListener, MainAux{
 
         setContentView(mBinding.root)
         print("Hola Mundo")
+        println("Segundo HolaMundo")
 
         /*mBinding.btnSave.setOnClickListener {
             val storeEntity = StoreEntity( name = mBinding.etName.text.toString().trim())

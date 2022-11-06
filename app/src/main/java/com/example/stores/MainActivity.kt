@@ -20,8 +20,6 @@ class MainActivity : AppCompatActivity(), OnClickListener, MainAux{
         mBinding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(mBinding.root)
-        print("Hola Mundo")
-        println("Segundo HolaMundo")
 
         /*mBinding.btnSave.setOnClickListener {
             val storeEntity = StoreEntity( name = mBinding.etName.text.toString().trim())

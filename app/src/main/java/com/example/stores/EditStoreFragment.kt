@@ -25,7 +25,6 @@ class EditStoreFragment : Fragment() {
         private var mIsEditMode: Boolean = false
         private var mStoreEntity: StoreEntity? = null
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
          ): View? {
@@ -47,14 +46,12 @@ class EditStoreFragment : Fragment() {
             mStoreEntity = StoreEntity(name = "", phone = "", photoUrl = "")
         }
 
-
         //por que MainActivity hereda de appcompat cosas que utilizaremos
         mActivity = activity as? MainActivity
         //agregar una flecha de retroseso
 
         mActivity?.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         mActivity?.supportActionBar?.title = getString(R.string.edit_store_title_add)
-
 
         //decirle que tenga acceso al menu
         setHasOptionsMenu(true)
@@ -66,7 +63,6 @@ class EditStoreFragment : Fragment() {
                 .centerCrop()
                 .into(mBinding.imgPhoto)
         }
-
     }
 
     private fun getStore(id: Long) {
@@ -114,7 +110,7 @@ class EditStoreFragment : Fragment() {
             //que pasara cuando le demos en el boton check(menu)
             R.id.action_save -> {
 
-                if(mStoreEntity != null){
+                if(mStoreEntity != null && validateFields() ){
 
                     /*val store = StoreEntity(name = mBinding.etName.text.toString().trim(),
                         phone = mBinding.etPhone.text.toString().trim(),
@@ -160,6 +156,34 @@ class EditStoreFragment : Fragment() {
             }else -> super.onOptionsItemSelected(item)
         }
         //return super.onOptionsItemSelected(item)
+    }
+
+    private fun validateFields(): Boolean {
+        var isValid = true
+        if(mBinding.etPhotoUrl.text.toString().trim().isEmpty()){
+            mBinding.tilPhotoUrl.error = getString(R.string.helper_require)
+            mBinding.etPhotoUrl.requestFocus()
+            isValid = false
+        }
+        /*if(mBinding.etWebsite.text.toString().trim().isEmpty()){
+            mBinding.tilUrl.error = getString(R.string.helper_require)
+            mBinding.etWebsite.requestFocus()
+            isValid = false
+        }*/
+        if(mBinding.etPhone.text.toString().trim().isEmpty()){
+            mBinding.tilPhone.error = getString(R.string.helper_require)
+            mBinding.etPhone.requestFocus()
+            isValid = false
+        }
+        if(mBinding.etName.text.toString().trim().isEmpty()){
+            mBinding.tiName.error = getString(R.string.helper_require)
+            mBinding.etName.requestFocus()
+            isValid = false
+        }
+
+
+
+        return isValid
     }
 
     //donde se devincula nuestra vista osea cuando nos salimos del fragment

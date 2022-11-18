@@ -47,19 +47,28 @@ class EditStoreFragment : Fragment() {
             mStoreEntity = StoreEntity(name = "", phone = "", photoUrl = "")
         }
 
+        setupActionBar()
+
+        setupTextfields()
+
+    }
+
+    private fun setupActionBar() {
         //por que MainActivity hereda de appcompat cosas que utilizaremos
         mActivity = activity as? MainActivity
         //agregar una flecha de retroseso
 
         mActivity?.supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        mActivity?.supportActionBar?.title = getString(R.string.edit_store_title_add)
+        mActivity?.supportActionBar?.title = if (mIsEditMode){
+            getString(R.string.edit_store_title_edit)
+        }else{
+            getString(R.string.edit_store_title_add)
+        }
 
         //decirle que tenga acceso al menu
         setHasOptionsMenu(true)
-
-      setupTextfields()
-
     }
+
 
     private fun setupTextfields(){
         //conn with agrega mBinding antes de lo que necesita usar Binding

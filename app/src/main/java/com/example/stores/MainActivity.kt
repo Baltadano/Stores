@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity(), OnClickListener, MainAux{
             StoreAplication.dataBase.storeDao().updateStore(storeEntity)
             uiThread {
                 //actualizamos el adaptador
-                mAdapter.update(storeEntity)
+                updateStore(storeEntity)
             }
         }
     }

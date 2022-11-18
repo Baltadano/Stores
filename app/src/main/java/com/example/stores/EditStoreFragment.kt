@@ -56,6 +56,7 @@ class EditStoreFragment : Fragment() {
 
         //decirle que tenga acceso al menu
         setHasOptionsMenu(true)
+
         mBinding.etPhotoUrl.addTextChangedListener {
             //this es el contexto del fragmento
             Glide.with(this)
@@ -64,6 +65,11 @@ class EditStoreFragment : Fragment() {
                 .centerCrop()
                 .into(mBinding.imgPhoto)
         }
+        //Esta accion ocurrira al ingresar texto al campo por segunda vez y posteriores
+        mBinding.etName.addTextChangedListener { validateFields(mBinding.tiName) }
+        mBinding.etPhone.addTextChangedListener { validateFields(mBinding.tilPhone) }
+        mBinding.etPhotoUrl.addTextChangedListener { validateFields(mBinding.tilPhotoUrl) }
+
     }
 
     private fun getStore(id: Long) {
@@ -164,6 +170,8 @@ class EditStoreFragment : Fragment() {
             if(textField.editText?.text.toString().trim().isEmpty()){
                 textField.error = getString(R.string.helper_require)
                 isValid = false
+            }else{
+                textField.error = null//en el caso de que si tenga algo el campo
             }
         }
         if (!isValid) Snackbar.make(mBinding.root, getString(R.string.edit_store_message_valid),Snackbar.LENGTH_SHORT).show()

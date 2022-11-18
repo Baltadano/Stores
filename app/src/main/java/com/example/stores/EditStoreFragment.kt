@@ -57,21 +57,32 @@ class EditStoreFragment : Fragment() {
         //decirle que tenga acceso al menu
         setHasOptionsMenu(true)
 
-        mBinding.etPhotoUrl.addTextChangedListener {
-            //this es el contexto del fragmento
-            Glide.with(this)
-                .load(mBinding.etPhotoUrl.text.toString())
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .centerCrop()
-                .into(mBinding.imgPhoto)
-        }
-        //Esta accion ocurrira al ingresar texto al campo por segunda vez y posteriores
-        mBinding.etName.addTextChangedListener { validateFields(mBinding.tiName) }
-        mBinding.etPhone.addTextChangedListener { validateFields(mBinding.tilPhone) }
-        mBinding.etPhotoUrl.addTextChangedListener { validateFields(mBinding.tilPhotoUrl) }
+      setupTextfields()
 
     }
 
+    private fun setupTextfields(){
+        //conn with agrega mBinding antes de lo que necesita usar Binding
+        with(mBinding){
+            //Esta accion ocurrira al ingresar texto al campo por segunda vez y posteriores
+            etName.addTextChangedListener { validateFields(tiName) }
+            etPhone.addTextChangedListener { validateFields(tilPhone) }
+            etPhotoUrl.addTextChangedListener {
+                validateFields(tilPhotoUrl)
+                loadImage(it.toString()
+                    .trim())//it significa input type, nos da acceso al texto del campo
+            }
+        }
+    }
+
+    private fun loadImage(url: String){
+        //this es el contexto del fragmento
+        Glide.with(this)
+            .load(url)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .centerCrop()
+            .into(mBinding.imgPhoto)
+    }
     private fun getStore(id: Long) {
         doAsync {
             mStoreEntity = StoreAplication.dataBase.storeDao().getStoreById(id)

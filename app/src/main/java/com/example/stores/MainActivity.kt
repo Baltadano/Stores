@@ -110,6 +110,22 @@ class MainActivity : AppCompatActivity(), OnClickListener, MainAux{
     }
 
     override fun onDeleteStore(storeEntity: StoreEntity) {
+        val items = arrayOf("Eliminar","LLamar","Ir al sitio web")
+
+        MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.dialog_options_title)
+            .setItems(items, { dialogInterface, i ->
+                when(i){
+                    0 -> confirmDelete(storeEntity)
+
+                    1 -> Toast.makeText(this,"Llamando...!",Toast.LENGTH_SHORT).show()
+
+                    2 -> Toast.makeText(this,"Sitio web...!",Toast.LENGTH_SHORT).show()
+                }
+            }).show()
+    }
+
+    private fun confirmDelete(storeEntity: StoreEntity){
         MaterialAlertDialogBuilder(this)
             .setTitle(R.string.dialog_delete_title)
             .setPositiveButton(R.string.dialog_delete_confirm, DialogInterface.OnClickListener { dialogInterface, i ->
@@ -124,9 +140,7 @@ class MainActivity : AppCompatActivity(), OnClickListener, MainAux{
             .setNegativeButton(R.string.dialog_cancel, null)
             .show()
 
-
     }
-
 
     /*
     * MainAuxx

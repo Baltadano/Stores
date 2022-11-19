@@ -31,5 +31,5 @@ class StoreAplication : Application() {
             "TiendasDB")
             .addMigrations(MIGRATION_1_2)
             .build()
-    }
+     }
     }

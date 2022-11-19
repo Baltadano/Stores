@@ -1,6 +1,8 @@
 package com.example.stores
 
 import android.content.DialogInterface
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -110,7 +112,7 @@ class MainActivity : AppCompatActivity(), OnClickListener, MainAux{
     }
 
     override fun onDeleteStore(storeEntity: StoreEntity) {
-        val items = arrayOf("Eliminar","LLamar","Ir al sitio web")
+        val items = arrayOf("Eliminar","Llamar","Ir al sitio web")
 
         MaterialAlertDialogBuilder(this)
             .setTitle(R.string.dialog_options_title)
@@ -118,7 +120,7 @@ class MainActivity : AppCompatActivity(), OnClickListener, MainAux{
                 when(i){
                     0 -> confirmDelete(storeEntity)
 
-                    1 -> Toast.makeText(this,"Llamando...!",Toast.LENGTH_SHORT).show()
+                    1 -> dial(storeEntity.phone)
 
                     2 -> Toast.makeText(this,"Sitio web...!",Toast.LENGTH_SHORT).show()
                 }
@@ -141,6 +143,16 @@ class MainActivity : AppCompatActivity(), OnClickListener, MainAux{
             .show()
 
     }
+
+    private fun dial(phone: String){
+        val callIntent = Intent().apply {
+            action = Intent.ACTION_DIAL
+            data = Uri.parse("tel: $phone")
+        }
+        startActivity(callIntent)
+
+    }
+
 
     /*
     * MainAuxx

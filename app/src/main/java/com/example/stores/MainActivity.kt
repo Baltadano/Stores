@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity(), OnClickListener, MainAux{
     }
 
     override fun onDeleteStore(storeEntity: StoreEntity) {
-        val items = arrayOf("Eliminar","Llamar","Ir al sitio web")
+        val items = resources.getStringArray(R.array.array_options_item)
 
         MaterialAlertDialogBuilder(this)
             .setTitle(R.string.dialog_options_title)
@@ -149,12 +149,9 @@ class MainActivity : AppCompatActivity(), OnClickListener, MainAux{
             action = Intent.ACTION_DIAL
             data = Uri.parse("tel: $phone")
         }
-        //revisar si hay alguna actividad que pueda resolver este tipo de intent
-        if(callIntent.resolveActivity(packageManager) != null)
-        startActivity(callIntent)
-        else
-            Toast.makeText(this,R.string.main_error_no_resolve,Toast.LENGTH_SHORT).show()
 
+        //revisar si hay alguna actividad que pueda resolver este tipo de intent
+        startIntent(callIntent)
     }
     private fun goToWebsite(website: String){
         if (website.isEmpty()) {
@@ -164,13 +161,17 @@ class MainActivity : AppCompatActivity(), OnClickListener, MainAux{
                 action = Intent.ACTION_VIEW
                 data = Uri.parse(website)
             }
-            if(websiteIntent.resolveActivity(packageManager) != null)
-                startActivity(websiteIntent)
-            else
-                Toast.makeText(this,R.string.main_error_no_resolve,Toast.LENGTH_SHORT).show()
+            startIntent(websiteIntent)
 
           }
         }
+    private fun startIntent(intent: Intent){
+        if(intent.resolveActivity(packageManager) != null)
+            startActivity(intent)
+        else
+            Toast.makeText(this,R.string.main_error_no_resolve,Toast.LENGTH_SHORT).show()
+
+    }
 
 
     /*

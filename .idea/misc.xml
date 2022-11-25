@@ -3,16 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/luis/AndroidStudioProjects/layouts/ProyectosKotlin/Stores/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.154" />
         <entry key="..\:/Users/luis/AndroidStudioProjects/layouts/ProyectosKotlin/Stores/app/src/main/res/drawable/btn_custom.xml" value="0.2595" />
         <entry key="..\:/Users/luis/AndroidStudioProjects/layouts/ProyectosKotlin/Stores/app/src/main/res/drawable/button_default.xml" value="0.2595" />
         <entry key="..\:/Users/luis/AndroidStudioProjects/layouts/ProyectosKotlin/Stores/app/src/main/res/drawable/ic_add_business.xml" value="0.2595" />
         <entry key="..\:/Users/luis/AndroidStudioProjects/layouts/ProyectosKotlin/Stores/app/src/main/res/drawable/ic_baseline_favorite.xml" value="0.2035" />
         <entry key="..\:/Users/luis/AndroidStudioProjects/layouts/ProyectosKotlin/Stores/app/src/main/res/drawable/ic_baseline_favorite_border.xml" value="0.2595" />
+        <entry key="..\:/Users/luis/AndroidStudioProjects/layouts/ProyectosKotlin/Stores/app/src/main/res/drawable/ic_check.xml" value="0.154" />
+        <entry key="..\:/Users/luis/AndroidStudioProjects/layouts/ProyectosKotlin/Stores/app/src/main/res/drawable/ic_image.xml" value="0.154" />
+        <entry key="..\:/Users/luis/AndroidStudioProjects/layouts/ProyectosKotlin/Stores/app/src/main/res/drawable/ic_phone.xml" value="0.154" />
+        <entry key="..\:/Users/luis/AndroidStudioProjects/layouts/ProyectosKotlin/Stores/app/src/main/res/drawable/ic_store.xml" value="0.154" />
         <entry key="..\:/Users/luis/AndroidStudioProjects/layouts/ProyectosKotlin/Stores/app/src/main/res/drawable/states_cb_favorite.xml" value="0.1" />
         <entry key="..\:/Users/luis/AndroidStudioProjects/layouts/ProyectosKotlin/Stores/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/luis/AndroidStudioProjects/layouts/ProyectosKotlin/Stores/app/src/main/res/layout/fragment_edit_store.xml" value="0.264" />
         <entry key="..\:/Users/luis/AndroidStudioProjects/layouts/ProyectosKotlin/Stores/app/src/main/res/layout/item_store.xml" value="0.253125" />
         <entry key="..\:/Users/luis/AndroidStudioProjects/layouts/ProyectosKotlin/Stores/app/src/main/res/menu/menu_save.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/luis/AndroidStudioProjects/layouts/ProyectosKotlin/Stores/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.154" />
+        <entry key="..\:/Users/luis/AndroidStudioProjects/layouts/ProyectosKotlin/Stores/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.154" />
       </map>
     </option>
   </component>
